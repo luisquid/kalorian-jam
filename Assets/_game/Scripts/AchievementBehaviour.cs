@@ -86,34 +86,55 @@ public class AchievementBehaviour : MonoBehaviour
 
     public void GetLoot()
     {
-        BTN_Achievement.GetComponent<Image>().sprite = LootGraphic;
+        transform.GetComponent<Image>().sprite = LootGraphic;
 
         switch(rule)
         {
             case Achievement.CLICKS:
-                
+                GameManager.instance.playerStats.counterMultiplier = 2f;
+                GameManager.instance.AchievementText.text = "bullets shoot twice!";
                 break;
             case Achievement.WORLDS:
-          
+                GameManager.instance.playerStats.counterMultiplier = 4f;
+                GameManager.instance.AchievementText.text = "bullets shoot twice! x2";
                 break;
             case Achievement.WHITE:
-
+                //SKIN
+                GameManager.instance.AchievementText.text = "the white chariot comes";
+                GameManager.instance.shipCtrl.GetComponent<MeshRenderer>().materials[1].color = Color.white;
                 break;
             case Achievement.BLUE:
-               
+                //SKIN
+                GameManager.instance.AchievementText.text = "what's the point of feeling blue?";
+
+                GameManager.instance.shipCtrl.GetComponent<MeshRenderer>().materials[1].color = Color.blue;
                 break;
             case Achievement.GOLD:
+                //SKIN
+                GameManager.instance.AchievementText.text = "don't paint me black when i used to be golden";
+                GameManager.instance.shipCtrl.GetComponent<MeshRenderer>().materials[1].color = Color.yellow;
 
                 break;
             case Achievement.RAND1:
-            
+                //GRAPHIC
+                GameManager.instance.AchievementText.text = "wait, what did you do";
+                GameManager.instance.shipCtrl.GetComponent<MeshRenderer>().materials[1].color = Color.red;
                 break;
             case Achievement.RAND2:
+                //GRAPHIC
+                GameManager.instance.AchievementText.text = "you never should've come here";
 
                 break;
             default:
                 Debug.Log("Case not defined");
                 break;
         }
+
+        GameManager.instance.AchievementText.gameObject.SetActive(true);
+    }
+
+    public void TurnOff()
+    {
+        GameManager.instance.AchievementText.gameObject.SetActive(false);
     }
 }

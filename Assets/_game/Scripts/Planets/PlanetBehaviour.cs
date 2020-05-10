@@ -38,6 +38,7 @@ public class PlanetBehaviour : MonoBehaviour
         GameManager.instance.CurrentLootCounter = 0;
         GameManager.instance.WorldsLooted++;
 
+        Debug.Log(PlayerPrefs.GetInt("WHITE_LOOTED"));
         switch(Properties.ID)
         {
             case 0:
@@ -66,6 +67,8 @@ public class PlanetBehaviour : MonoBehaviour
         GameManager.instance.shipCtrl.anim.SetTrigger("DoTheThing");
         GameManager.instance.camShake.StartCameraShake(3f, 30f, 50f, true);
         Instantiate(DeadParticles, transform.position, Quaternion.identity);
+        AudioManager.instance.PlaySoundFX(AudioManager.instance.explosion, 2);
+        AudioManager.instance.FXSourcesMix[3].Play();
         
         //New Planet
         GameManager.instance.planetMngr.CurrentPlanet = null;

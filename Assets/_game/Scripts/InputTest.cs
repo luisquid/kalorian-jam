@@ -24,6 +24,7 @@ public class InputTest : MonoBehaviour
                 if(hit.transform.CompareTag("Planet"))
                 {
                     GameManager.instance.UpdateCounter(1);
+                    AudioManager.instance.PlaySoundFX(AudioManager.instance.shoot, 0);
                     clickFunction(GameManager.instance.CurrentLootCounter);
 
                     GameManager.instance.shipCtrl.anim.SetTrigger("Shoot");

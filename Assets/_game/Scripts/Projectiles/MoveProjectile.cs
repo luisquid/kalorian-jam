@@ -32,6 +32,7 @@ public class MoveProjectile : MonoBehaviour
         Destroy(hitFX, transform.GetChild(0).GetComponent<ParticleSystem>().main.duration);
         if(collision.collider.CompareTag("Planet"))
         {
+            AudioManager.instance.PlaySoundFX(AudioManager.instance.hit, 1);
             Instantiate(ScorePrefab, contrPos, Quaternion.identity);
             GameManager.instance.camShake.StartCameraShake(0.3f, 2.0f, 3.0f);
             Speed = 0;
