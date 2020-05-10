@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-enum Achievement {
+public enum Achievement {
                     CLICKS,
                     WORLDS,
                     WHITE,
@@ -15,8 +15,7 @@ enum Achievement {
 
 public class AchievementBehaviour : MonoBehaviour
 {
-    [SerializeField]
-    Achievement rule;
+    public Achievement rule;
     public float Quantity;
     public Sprite LootGraphic;
     private Button BTN_Achievement;
