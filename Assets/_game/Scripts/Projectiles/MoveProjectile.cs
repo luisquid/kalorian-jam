@@ -7,6 +7,7 @@ public class MoveProjectile : MonoBehaviour
     public float Speed;
     public GameObject MuzzlePrefab;
     public GameObject HitPrefab;
+    public GameObject ScorePrefab;
 
     private void Start()
     {
@@ -31,8 +32,7 @@ public class MoveProjectile : MonoBehaviour
         Destroy(hitFX, transform.GetChild(0).GetComponent<ParticleSystem>().main.duration);
         if(collision.collider.CompareTag("Planet"))
         {
-            print("Yes");
-
+            Instantiate(ScorePrefab, contrPos, Quaternion.identity);
             GameManager.instance.camShake.StartCameraShake(0.3f, 2.0f, 3.0f);
             Speed = 0;
             Destroy(gameObject);

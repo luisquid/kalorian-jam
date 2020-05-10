@@ -9561,6 +9561,8 @@ MonoBehaviour:
     type: 3}
   HitPrefab: {fileID: 6926827703041635184, guid: 263dbe5e6d02e1c40aef1aee768fbfa6,
     type: 3}
+  ScorePrefab: {fileID: 2348865068087312781, guid: 025f64062d7ba804cbf2f3782ef964b1,
+    type: 3}
 --- !u!65 &704548371311874738
 BoxCollider:
   m_ObjectHideFlags: 0

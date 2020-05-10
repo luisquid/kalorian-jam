@@ -11,6 +11,6 @@ public class ScoreText : MonoBehaviour
     void Awake()
     {
         TXT_Score = GetComponent<TextMeshPro>();
-        TXT_Score.text = GameManager.instance.playerStats.counterMultiplier.ToString();
+        TXT_Score.text = "+" +GameManager.instance.playerStats.counterMultiplier.ToString();
     }
 }
