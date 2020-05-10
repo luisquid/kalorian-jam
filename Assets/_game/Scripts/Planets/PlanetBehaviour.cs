@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlanetBehaviour : MonoBehaviour
 {
-    public int ClicksToExplode;
+    public PlanetType Properties;
 
     private void Start()
     {
@@ -14,20 +14,30 @@ public class PlanetBehaviour : MonoBehaviour
 
     public void CalculateClicks(int _clicks)
     {
-        Debug.Log(ClicksToExplode - _clicks + " CLICKS LEFT");
+        Debug.Log(Properties.ClicksToExplode - _clicks + " CLICKS LEFT");
 
-        if(_clicks >= ClicksToExplode)
+        if(_clicks >= Properties.ClicksToExplode)
         {
-            Debug.Log("I AM DEAD");
-            GameManager.instance.TotalLootCounter += GameManager.instance.CurrentLootCounter;
-            GameManager.instance.CurrentLootCounter = 0;
-            GameManager.instance.shipCtrl.anim.SetTrigger("DoTheThing");
-            GameManager.instance.camShake.StartCameraShake(3f, 30f, 50f, true);
+            ExplodeAndLoot();
         }
     }
 
     public void ExplodeAndLoot()
     {
+        Debug.Log("OKAY BBYE");
+        //Loot Section
+        GameManager.instance.TotalLootCounter += GameManager.instance.CurrentLootCounter;
+        GameManager.instance.CurrentLootCounter = 0;
 
+        //Animation and visual
+        GameManager.instance.shipCtrl.anim.SetTrigger("DoTheThing");
+        GameManager.instance.camShake.StartCameraShake(3f, 30f, 50f, true);
+
+        //New Planet
+        GameManager.instance.planetMngr.GetNewPlanet();
+
+        //Desuscribe and destroy
+        FindObjectOfType<InputTest>().clickFunction -= CalculateClicks;
+        Destroy(gameObject);
     }
 }

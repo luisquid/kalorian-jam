@@ -8,8 +8,7 @@ public class GameManager : MonoSingleton<GameManager>
     public ShipController shipCtrl;
     public CameraShake camShake;
     public PlanetManager planetMngr;
-
-    public GameObject VC_UI;
+    public PlayerStats playerStats;
 
     public int TotalLootCounter = 0;
     public int CurrentLootCounter = 0;

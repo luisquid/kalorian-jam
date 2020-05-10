@@ -7,8 +7,5 @@ using UnityEngine;
 public class PlanetType : ScriptableObject
 {
     public int ClicksToExplode;
-    public Mesh PlanetMesh;
-    public Material PlanetMaterial;
-
     public GameObject[] Loot;
 }

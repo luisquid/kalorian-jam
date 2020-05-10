@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff28e0fa89ac984db5fbde15e20e771, type: 3}
   m_Name: WhitePlanet
   m_EditorClassIdentifier: 
-  ClicksToExplode: 20
-  PlanetMesh: {fileID: 4300000, guid: f79bd44c66cf347c88010b9a95935391, type: 3}
+  ClicksToExplode: 1
+  PlanetPrefab: {fileID: 1478394628382476, guid: eab87ad1f2f134be8a0d59a03a12b7bf,
+    type: 3}
+  colorDifference: []
+  Loot: []
