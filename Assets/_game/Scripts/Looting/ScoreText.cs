@@ -13,4 +13,9 @@ public class ScoreText : MonoBehaviour
         TXT_Score = GetComponent<TextMeshPro>();
         TXT_Score.text = "+" +GameManager.instance.playerStats.counterMultiplier.ToString();
     }
+
+    public void DestroyScoreText()
+    {
+        Destroy(gameObject);
+    }
 }

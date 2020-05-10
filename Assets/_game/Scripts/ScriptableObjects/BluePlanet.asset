@@ -12,8 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff28e0fa89ac984db5fbde15e20e771, type: 3}
   m_Name: BluePlanet
   m_EditorClassIdentifier: 
-  ClicksToExplode: 3
-  PlanetPrefab: {fileID: 1101605294314730, guid: 397e4c5b32e3a41a2a4237483eb11f74,
-    type: 3}
-  colorDifference: []
+  ClicksToExplode: 50
   Loot: []

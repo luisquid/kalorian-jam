@@ -23,8 +23,6 @@ public class InputTest : MonoBehaviour
             {
                 if(hit.transform.CompareTag("Planet"))
                 {
-                    Debug.Log("SHOOT");
-
                     GameManager.instance.UpdateCounter(1);
                     clickFunction(GameManager.instance.CurrentLootCounter);
 

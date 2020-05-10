@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a1463ee9a6dff44b9b0a412c48567b, type: 3}
   m_Name: PlanetDistro
   m_EditorClassIdentifier: 
-  WhiteProbab: 95
+  WhiteProbab: 1
   BlueProbab: 65
-  GoldProbab: 1
+  GoldProbab: 95
   Planets:
   - {fileID: 8366686515600853666, guid: 1bc4ab127cc5d7f4e86703b5d213670f, type: 3}
   - {fileID: 8276817648604570488, guid: b6340a343f757b247be7a4e5e3ecd2d9, type: 3}

@@ -16,6 +16,7 @@ public class CameraShake : MonoBehaviour
     private CinemachineBasicMultiChannelPerlin virtualCamNoise;
     private float shakeTime = 0f;
     private bool waitForShake = false;
+
     void Start()
     {
         virtualCam = GetComponent<CinemachineVirtualCamera>();
@@ -24,11 +25,6 @@ public class CameraShake : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && TestShake)
-        {
-            StartCameraShake(ShakeDuration, ShakeAmplitude, ShakeFrequency);
-        }
-
         if (shakeTime > 0.0f)
         {
             virtualCamNoise.m_AmplitudeGain = ShakeAmplitude;
@@ -36,7 +32,6 @@ public class CameraShake : MonoBehaviour
 
             shakeTime -= Time.deltaTime;
         }
-
         else
         {
             waitForShake = false;

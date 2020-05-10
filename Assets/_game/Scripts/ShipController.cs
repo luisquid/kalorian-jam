@@ -18,15 +18,7 @@ public class ShipController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        //timeToHover = Random.Range(1, MaxTime);
-        //StartCoroutine(WaitForHover());
     }
-
-    //void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Space))
-    //        anim.SetTrigger("DoTheThing");
-    //}
 
     public void ShootProjectile()
     {
@@ -37,16 +29,6 @@ public class ShipController : MonoBehaviour
                                         isLeft ? BulletSpawnLeft.position : BulletSpawnRight.position, 
                                         isLeft ? BulletSpawnLeft.rotation : BulletSpawnRight.rotation);
         isLeft = !isLeft;   
-    }
-
-    IEnumerator WaitForHover()
-    {
-        yield return new WaitForSeconds(timeToHover);
-
-        GameManager.instance.BlockShooting = true;
-        anim.SetTrigger("DoTheThing");
-        timeToHover = Random.Range(1, MaxTime);
-        StartCoroutine(WaitForHover());
     }
 
     public void UnblockShooting()
@@ -61,7 +43,6 @@ public class ShipController : MonoBehaviour
 
     public void SetLeft(int _status)
     {
-        print(_status == 0);
         anim.SetBool("Left", _status == 0 ? true : false);
     }
 }

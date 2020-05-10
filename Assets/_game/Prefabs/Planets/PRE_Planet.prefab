@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 598260886}
   - component: {fileID: 598260885}
   - component: {fileID: 598260887}
+  - component: {fileID: 1842918502}
   m_Layer: 0
   m_Name: PRE_Planet
   m_TagString: Planet
@@ -47,6 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Properties: {fileID: 11400000, guid: b9e0c80a8d4546b4d8d675d2c138ea78, type: 2}
+  DeadParticles: {fileID: 6781620318542082290, guid: 11064b5f4621e914386d78d7f61b5336,
+    type: 3}
 --- !u!23 &598260886
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -107,3 +110,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5.001222
   m_Center: {x: -0.0035495758, y: 0, z: 0}
+--- !u!95 &1842918502
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7286425910473331010}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b0f6b85f5b407949abdd0502790a2a1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
