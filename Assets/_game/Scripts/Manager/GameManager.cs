@@ -6,6 +6,7 @@ public class GameManager : MonoSingleton<GameManager>
 {
     public UIController uiCtrl;
     public ShipController shipCtrl;
+    public CameraShake camShake;
     public float lootCounter = 0;
 
     public void UpdateCounter(float _increment)
