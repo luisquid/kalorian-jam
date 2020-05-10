@@ -9,6 +9,8 @@ public class GameManager : MonoSingleton<GameManager>
     public CameraShake camShake;
     public PlanetManager planetMngr;
 
+    public GameObject VC_UI;
+
     public int TotalLootCounter = 0;
     public int CurrentLootCounter = 0;
     public bool BlockShooting = false;
