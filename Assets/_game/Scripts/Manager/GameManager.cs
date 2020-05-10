@@ -7,11 +7,15 @@ public class GameManager : MonoSingleton<GameManager>
     public UIController uiCtrl;
     public ShipController shipCtrl;
     public CameraShake camShake;
-    public float lootCounter = 0;
+    public PlanetManager planetMngr;
 
-    public void UpdateCounter(float _increment)
+    public int TotalLootCounter = 0;
+    public int CurrentLootCounter = 0;
+    public bool BlockShooting = false;
+
+    public void UpdateCounter(int _increment)
     {
-        lootCounter += _increment;
-        uiCtrl.TXT_Counter.text = lootCounter.ToString();
+        CurrentLootCounter += _increment;
+        uiCtrl.TXT_Counter.text = (TotalLootCounter + CurrentLootCounter).ToString();
     }
 }

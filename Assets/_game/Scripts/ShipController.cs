@@ -14,13 +14,12 @@ public class ShipController : MonoBehaviour
     
     private float timeToHover;
     private bool isLeft = false;
-    private bool blockShooting = false;
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        timeToHover = Random.Range(1, MaxTime);
-        StartCoroutine(WaitForHover());
+        //timeToHover = Random.Range(1, MaxTime);
+        //StartCoroutine(WaitForHover());
     }
 
     //void Update()
@@ -31,7 +30,7 @@ public class ShipController : MonoBehaviour
 
     public void ShootProjectile()
     {
-        if (blockShooting)
+        if (GameManager.instance.BlockShooting)
             return;
 
         GameObject bullet = Instantiate(BulletProjectile, 
@@ -44,7 +43,7 @@ public class ShipController : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToHover);
 
-        blockShooting = true;
+        GameManager.instance.BlockShooting = true;
         anim.SetTrigger("DoTheThing");
         timeToHover = Random.Range(1, MaxTime);
         StartCoroutine(WaitForHover());
@@ -52,8 +51,12 @@ public class ShipController : MonoBehaviour
 
     public void UnblockShooting()
     {
-        print("I AM UNBLOCKING THE SHOOTING");
-        blockShooting = false;
+        GameManager.instance.BlockShooting = false;
+    }
+
+    public void BlockShooting()
+    {
+        GameManager.instance.BlockShooting = true;
     }
 
     public void SetLeft(int _status)

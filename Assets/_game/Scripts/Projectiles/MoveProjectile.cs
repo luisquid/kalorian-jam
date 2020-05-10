@@ -5,12 +5,15 @@ using UnityEngine;
 public class MoveProjectile : MonoBehaviour
 {
     public float Speed;
-    public GameObject MuzzleParticles;
-    public GameObject HitParticles;
+    public GameObject MuzzlePrefab;
+    public GameObject HitPrefab;
 
     private void Start()
     {
-        StartCoroutine(KillProjectile());
+        GameObject muzzleFX = Instantiate(MuzzlePrefab, transform.position, Quaternion.identity);
+
+        Destroy(muzzleFX, transform.GetChild(0).GetComponent<ParticleSystem>().main.duration);
+        Destroy(gameObject, 9f);
     }
 
     void Update()
@@ -20,20 +23,19 @@ public class MoveProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        ContactPoint contact = collision.contacts[0];
+        Quaternion conRot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+        Vector3 contrPos = contact.point;
+
+        GameObject hitFX = Instantiate(HitPrefab, contrPos, conRot);
+        Destroy(hitFX, transform.GetChild(0).GetComponent<ParticleSystem>().main.duration);
         if(collision.collider.CompareTag("Planet"))
         {
             print("Yes");
 
-            GameManager.instance.camShake.StartCameraShake(2.0f, 3.0f);
+            GameManager.instance.camShake.StartCameraShake(0.3f, 2.0f, 3.0f);
             Speed = 0;
             Destroy(gameObject);
         }     
-    }
-
-    IEnumerator KillProjectile()
-    {
-        yield return new WaitForSeconds(9f);
-
-        Destroy(gameObject);
     }
 }

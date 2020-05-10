@@ -5,16 +5,17 @@ using Cinemachine;
 
 public class CameraShake : MonoBehaviour
 {
+    [Header("TESTING")]
+    public bool TestShake = true;
+    [Header("SHAKE PROPERTIES")]
     public float ShakeDuration = 0.2f;
-    [HideInInspector]
     public float ShakeAmplitude = 1.2f;
-    [HideInInspector]
     public float ShakeFrequency = 2.0f;
 
     CinemachineVirtualCamera virtualCam;
     private CinemachineBasicMultiChannelPerlin virtualCamNoise;
-    private float ShakeTime = 0f;
-
+    private float shakeTime = 0f;
+    private bool waitForShake = false;
     void Start()
     {
         virtualCam = GetComponent<CinemachineVirtualCamera>();
@@ -23,24 +24,34 @@ public class CameraShake : MonoBehaviour
 
     void Update()
     {
-        if (ShakeTime > 0.0f)
+        if(Input.GetKeyDown(KeyCode.Space) && TestShake)
+        {
+            StartCameraShake(ShakeDuration, ShakeAmplitude, ShakeFrequency);
+        }
+
+        if (shakeTime > 0.0f)
         {
             virtualCamNoise.m_AmplitudeGain = ShakeAmplitude;
             virtualCamNoise.m_FrequencyGain = ShakeFrequency;
 
-            ShakeTime -= Time.deltaTime;
+            shakeTime -= Time.deltaTime;
         }
 
         else
         {
+            waitForShake = false;
             virtualCamNoise.m_AmplitudeGain = 0;
             virtualCamNoise.m_FrequencyGain = 1;
         }
     }
 
-    public void StartCameraShake(float _amplitude, float _frequency)
+    public void StartCameraShake(float _duration, float _amplitude, float _frequency, bool _waitToEnd = false)
     {
-        ShakeTime = ShakeDuration;
+        if (waitForShake)
+            return;
+
+        waitForShake = _waitToEnd;
+        shakeTime = ShakeDuration;
         ShakeAmplitude = _amplitude;
         ShakeFrequency = _frequency;
     }

@@ -600,7 +600,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 2
     size3D: 1
     rotation3D: 1
     gravityModifier:
@@ -9557,6 +9557,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 30
+  MuzzlePrefab: {fileID: 9150392944197624592, guid: 124b8a20028f74841a80c2fdf75fb460,
+    type: 3}
+  HitPrefab: {fileID: 6926827703041635184, guid: 263dbe5e6d02e1c40aef1aee768fbfa6,
+    type: 3}
 --- !u!65 &704548371311874738
 BoxCollider:
   m_ObjectHideFlags: 0
