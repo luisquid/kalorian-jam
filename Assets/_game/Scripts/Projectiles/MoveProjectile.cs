@@ -5,6 +5,8 @@ using UnityEngine;
 public class MoveProjectile : MonoBehaviour
 {
     public float Speed;
+    public GameObject MuzzleParticles;
+    public GameObject HitParticles;
 
     private void Start()
     {
