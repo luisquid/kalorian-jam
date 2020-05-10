@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlanetType", menuName = "luisquid/ScriptableObject/Planet")]
 public class PlanetType : ScriptableObject
 {
+    public int ID;
     public int ClicksToExplode;
     public GameObject[] Loot;
 }

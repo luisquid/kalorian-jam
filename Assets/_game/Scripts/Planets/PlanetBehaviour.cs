@@ -36,6 +36,31 @@ public class PlanetBehaviour : MonoBehaviour
         //Loot Section
         GameManager.instance.TotalLootCounter += GameManager.instance.CurrentLootCounter;
         GameManager.instance.CurrentLootCounter = 0;
+        GameManager.instance.WorldsLooted++;
+
+        switch(Properties.ID)
+        {
+            case 0:
+                PlayerPrefs.SetInt("WHITE_LOOTED", PlayerPrefs.GetInt("WHITE_LOOTED") + 1);
+            
+                break;
+
+            case 1:
+                PlayerPrefs.SetInt("BLUE_LOOTED", PlayerPrefs.GetInt("BLUE_LOOTED") + 1);
+
+                break;
+
+            case 2:
+                PlayerPrefs.SetInt("GOLD_LOOTED", PlayerPrefs.GetInt("GOLD_LOOTED") + 1);
+
+                break;
+
+            default:
+
+                break;
+        }
+        PlayerPrefs.SetInt("TOTAL_LOOT", GameManager.instance.TotalLootCounter);
+        PlayerPrefs.SetInt("WORLDS_LOOTED", GameManager.instance.WorldsLooted);
 
         //Animation and visual
         GameManager.instance.shipCtrl.anim.SetTrigger("DoTheThing");

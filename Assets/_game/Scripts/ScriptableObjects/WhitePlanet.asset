@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff28e0fa89ac984db5fbde15e20e771, type: 3}
   m_Name: WhitePlanet
   m_EditorClassIdentifier: 
+  ID: 1
   ClicksToExplode: 25
   Loot: []
